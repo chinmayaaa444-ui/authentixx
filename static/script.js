@@ -443,6 +443,7 @@ if (riskMeter) {
             }
 
             scanResult.textContent = data.result;
+           await refreshDashboard();
 if (data.risk_score !== undefined) {
     updateRiskMeter(data.risk_score);
 } else {
@@ -521,6 +522,7 @@ if (urlInput && urlScanButton && urlScanResult) {
             }
 
             urlScanResult.textContent = data.result;
+           await refreshDashboard();
 
         } catch (error) {
 
