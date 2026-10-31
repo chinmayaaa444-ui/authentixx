@@ -823,3 +823,63 @@ animateTrail();
     animate();
 
 })();
+
+/* =====================================
+   6. REAL-TIME AUTHENTIX DASHBOARD
+===================================== */
+
+async function refreshDashboard() {
+    try {
+        const response = await fetch("/api/dashboard");
+
+        if (!response.ok) {
+            throw new Error("Dashboard data could not be loaded.");
+        }
+
+        const stats = await response.json();
+
+        const total = document.getElementById("totalScans");
+        const lowRisk = document.getElementById("safeScans");
+        const flagged = document.getElementById("flaggedScans");
+        const activity = document.getElementById("recentActivity");
+
+        if (total) total.textContent = stats.total_scans;
+        if (lowRisk) lowRisk.textContent = stats.low_risk_scans;
+        if (flagged) flagged.textContent = stats.flagged_scans;
+
+        if (activity) {
+            activity.replaceChildren();
+
+            if (!stats.recent_activity.length) {
+                const empty = document.createElement("p");
+                empty.textContent =
+                    "No scans yet. Try scanning a message or website!";
+                activity.appendChild(empty);
+            } else {
+                stats.recent_activity.forEach((scan) => {
+                    const item = document.createElement("div");
+                    item.className = "activity-item";
+
+                    const heading = document.createElement("strong");
+                    heading.textContent = scan.scan_type + " Scan";
+
+                    const details = document.createElement("p");
+                    details.textContent =
+                        scan.risk_level + " · " + scan.risk_score + "/100";
+
+                    const date = document.createElement("small");
+                    date.textContent =
+                        new Date(scan.created_at).toLocaleString();
+
+                    item.append(heading, details, date);
+                    activity.appendChild(item);
+                });
+            }
+        }
+    } catch (error) {
+        console.error("Dashboard error:", error);
+    }
+}
+
+document.addEventListener("DOMContentLoaded", refreshDashboard);
+
