@@ -217,91 +217,63 @@
             </div>
         </section>
 
-        <!-- DASHBOARD -->
-        <section class="section dashboard-section reveal" id="dashboard">
+       
+<!-- DASHBOARD -->
+<section class="section dashboard-section reveal" id="dashboard">
 
-            <div class="section-heading reveal">
-                <span class="eyebrow">02 / YOUR SECURITY CENTRE</span>
-                <h2>Everything. <span>In focus.</span></h2>
-                <p>Your security overview at a glance.</p>
+    <div class="section-heading reveal">
+        <span class="eyebrow">02 / YOUR SECURITY CENTRE</span>
+        <h2>Everything. <span>In focus.</span></h2>
+        <p>Your security overview at a glance.</p>
+    </div>
+
+    <div class="dashboard reveal">
+
+        <div class="dashboard-top">
+            <div>
+                <span class="eyebrow">OVERVIEW / LIVE</span>
+                <h3>Security Dashboard</h3>
+            </div>
+            <span class="demo-label">LIVE DATA</span>
+        </div>
+
+        <div class="stats-grid">
+
+            <div class="stat-card tilt-card">
+                <span>Total Scans</span>
+                <h2 id="totalScans">0</h2>
+                <small>Recorded scans</small>
             </div>
 
-            <div class="dashboard reveal">
-
-                <div class="dashboard-top">
-                    <div>
-                        <span class="eyebrow">OVERVIEW / 2026</span>
-                        <h3>Security Dashboard</h3>
-                    </div>
-
-                    <span class="demo-label">DEMO DATA</span>
-                </div>
-
-                <div class="stats-grid">
-
-                    <div class="stat-card tilt-card">
-                        <span>Total Scans</span>
-                        <h2 class="counter" data-target="128">0</h2>
-                        <small>Illustrative activity</small>
-                    </div>
-
-                    <div class="stat-card tilt-card">
-                        <span>Safe Messages</span>
-                        <h2 class="counter safe-number"
-                            data-target="96">0</h2>
-                        <small>Illustrative activity</small>
-                    </div>
-
-                    <div class="stat-card tilt-card">
-                        <span>Flagged Messages</span>
-                        <h2 class="counter warning-number"
-                            data-target="32">0</h2>
-                        <small>Illustrative activity</small>
-                    </div>
-
-                </div>
-
-                <div class="activity-card">
-                    <div class="activity-heading">
-                        <h3>Recent Activity</h3>
-                        <span>ILLUSTRATIVE RECORDS</span>
-                    </div>
-
-                    <div class="activity-row">
-                        <span class="activity-dot safe-dot"></span>
-                        <div>
-                            <strong>Delivery notification</strong>
-                            <small>Example message</small>
-                        </div>
-                        <span class="safe-status">SAFE*</span>
-                    </div>
-
-                    <div class="activity-row">
-                        <span class="activity-dot warning-dot"></span>
-                        <div>
-                            <strong>Unknown reward message</strong>
-                            <small>Example message</small>
-                        </div>
-                        <span class="warning-status">REVIEW*</span>
-                    </div>
-
-                    <div class="activity-row">
-                        <span class="activity-dot safe-dot"></span>
-                        <div>
-                            <strong>Account update</strong>
-                            <small>Example message</small>
-                        </div>
-                        <span class="safe-status">SAFE*</span>
-                    </div>
-                </div>
-
+            <div class="stat-card tilt-card">
+                <span>Safe Scans</span>
+                <h2 class="safe-number" id="safeScans">0</h2>
+                <small>Low-risk results</small>
             </div>
 
-            <p class="demo-note">
-                *Illustrative demo information, not actual security results.
-            </p>
+            <div class="stat-card tilt-card">
+                <span>Flagged Scans</span>
+                <h2 class="warning-number" id="flaggedScans">0</h2>
+                <small>Results requiring attention</small>
+            </div>
 
-        </section>
+        </div>
+
+        <div class="activity-card">
+            <div class="activity-heading">
+                <h3>Recent Activity</h3>
+                <span>LIVE RECORDS</span>
+            </div>
+
+            <div id="recentActivity">
+                <p>Loading recent activity...</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+        
 
         <!-- SCANNERS -->
         <section class="section scanner-section reveal" id="scanner">
